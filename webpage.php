@@ -8,7 +8,7 @@
 </head>
 <?php
 
-include("connwe.php");
+include("connection.php");
 
 ?>
 <body >
@@ -86,7 +86,7 @@ include("connwe.php");
     $subjects = isset($_POST["subject"]) ? implode(", ", $_POST["subject"]) : "";
     $semesters = isset($_POST["semester"]) ? implode(", ", $_POST["semester"]) : "";
     
-    $query="INSERT INTO `student_data` (`firstname`, `lastname`, `email`, `password`, `confirmpassword`, `gender`, `Subject`, `Semester`) VALUES ('$fn', '$ln', '$em', '$pwd', '$conp', '$gender', '$subjects', '$semesters')";
+    $query="INSERT INTO student_data (firstname, lastname, email, password, confirmpassword, gender, Subject, Semester) VALUES ('$fn', '$ln', '$em', '$pwd', '$conp', '$gender', '$subjects', '$semesters')";
     
     mysqli_query($conn,$query);
     echo "<script> alert('Data Inserted Successfully');</script>";
