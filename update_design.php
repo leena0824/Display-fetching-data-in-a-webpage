@@ -1,8 +1,25 @@
 <?php
 include("connection.php");
+session_start();
 
-if(isset($_GET['id'])) {
+
+
     $id = $_GET['id'];
+
+    $userprofile=$_SESSION['user_name'];
+
+ if( $userprofile ==  true)
+ {
+ 
+ }
+ else{
+    ?>
+    
+    <meta http-equiv = "refresh" content = "0; url = http://localhost/php/login.php"/>
+<?php
+    
+ }
+ if(isset($_GET['id'])) {
     $query ="SELECT * FROM tbb_data where id='$id'";
     $data = mysqli_query($conn,$query);
     $result = mysqli_fetch_assoc($data);
